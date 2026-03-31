@@ -9,8 +9,6 @@ import org.springframework.data.web.PageableDefault;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-
 @RestController
 @RequestMapping ("/medicos")
 public class MedicoController {
@@ -26,7 +24,7 @@ public class MedicoController {
 
     @GetMapping
     public Page<DadosListagemMedico> listar(@PageableDefault(size = 10, sort = {"nome"}) Pageable pageable) {
-      return repository.findAll(pageable).map(DadosListagemMedico::new);
+      return repository.findAllByAtivoTrue(pageable).map(DadosListagemMedico::new);
     }
 
     @PutMapping
@@ -39,7 +37,9 @@ public class MedicoController {
 
     //exclusao logica: parar de exibir no sistema apenas
     @DeleteMapping("/{id}")
+    @Transactional
     public void Delete(@PathVariable Long id){
-       repository.deleteById(id);
+       var medico = repository.getReferenceById(id);
+       medico.excluir();
     }
 }
