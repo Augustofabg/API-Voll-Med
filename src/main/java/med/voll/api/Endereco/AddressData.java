@@ -3,27 +3,27 @@ package med.voll.api.Endereco;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
 
-public record DadosEndereco(
+public record AddressData(
 
         @NotBlank
-        String logradouro,
+        String street,
 
         @NotBlank
-        String bairro,
+        String neighborhood,
 
         @NotBlank
         @Pattern(regexp = "\\d{8}")
-        String cep,
+        String zip_code,
 
         @NotBlank
-        String cidade,
+        String city,
 
         @NotBlank
-        String uf,
+        String state,
 
 
-        String numero,
+        String number,
 
 
-        String complemento) {
+        String complement) {
 }
