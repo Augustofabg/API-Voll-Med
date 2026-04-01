@@ -18,7 +18,7 @@ public class MedicoController {
 
     @PostMapping
     @Transactional
-    public void CadastrarMedicos(@RequestBody @Valid DadosCadastroMedicos dados){
+    public void cadastrarMedicos(@RequestBody @Valid DadosCadastroMedicos dados){
         repository.save(new Medico(dados));
     }
 
@@ -29,7 +29,7 @@ public class MedicoController {
 
     @PutMapping
     @Transactional
-    public void Atualizar(@RequestBody @Valid DadosAttMedicos dados){
+    public void atualizar(@RequestBody @Valid DadosAttMedicos dados){
         var medico = repository.getReferenceById(dados.id());
         medico.AttInformacoes(dados);
       }
@@ -38,7 +38,7 @@ public class MedicoController {
     //exclusao logica: parar de exibir no sistema apenas
     @DeleteMapping("/{id}")
     @Transactional
-    public void Delete(@PathVariable Long id){
+    public void delete(@PathVariable Long id){
        var medico = repository.getReferenceById(id);
        medico.excluir();
     }
