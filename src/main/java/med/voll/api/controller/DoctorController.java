@@ -44,8 +44,6 @@ public class DoctorController {
         return ResponseEntity.ok(new DoctorDetailsData(doctor));
     }
 
-
-
     @PutMapping
     @Transactional
     public ResponseEntity updateDoctor(@RequestBody @Valid DoctorUpdateData data){
