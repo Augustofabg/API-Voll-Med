@@ -1,9 +1,9 @@
-package med.voll.api.Medico;
+package med.voll.api.domain.patient;
 
 import jakarta.validation.constraints.NotNull;
-import med.voll.api.Endereco.AddressData;
+import med.voll.api.domain.address.AddressData;
 
-public record DoctorUpdateData(
+public record PatientUpdateData(
 
         @NotNull
         Long id,
@@ -12,4 +12,5 @@ public record DoctorUpdateData(
         String phone,
         AddressData address
 
-        ) {}
+) {
+}

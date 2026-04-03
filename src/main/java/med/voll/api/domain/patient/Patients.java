@@ -1,10 +1,10 @@
-package med.voll.api.Pacientes;
+package med.voll.api.domain.patient;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import med.voll.api.Endereco.Address;
+import med.voll.api.domain.address.Address;
 
 @Table (name = "patients")
 @Entity (name = "patients")

@@ -1,4 +1,4 @@
-package med.voll.api.Pacientes;
+package med.voll.api.domain.patient;
 
 public record PatientListData(
         Long id,
